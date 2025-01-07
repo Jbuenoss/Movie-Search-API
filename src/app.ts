@@ -13,9 +13,12 @@ app.use(express.json());
 // DB
 import db from "../config/db";
 
-
 // routes
 import router from "./router";
+
+// Logger
+import Logger from "../config/logger";
+
 
 app.use("/api/", router);
 
@@ -23,5 +26,5 @@ app.use("/api/", router);
 
 app.listen(port, async () => {
     await db();
-    console.log(`HTTP server running on port ${port}`);
+    Logger.info(`HTTP server running on port ${port}`);
 });
